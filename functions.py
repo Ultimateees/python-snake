@@ -10,6 +10,8 @@ def draw_snake(snake_block, snake_pixels):
 
 def run_game():
 
+    current_direction = None
+
     game_over = False
     game_close = False
 
@@ -49,19 +51,23 @@ def run_game():
             if event.type == opts.pygame.QUIT:
                 game_over = True
             if event.type == opts.pygame.KEYDOWN:
-                if event.key == opts.pygame.K_LEFT:
+                if event.key == opts.pygame.K_LEFT and current_direction != 'RIGHT':
                     x_speed = -opts.SNAKE_BLOCK
                     y_speed = 0
-                elif event.key == opts.pygame.K_RIGHT:
+                    current_direction = 'LEFT'
+                elif event.key == opts.pygame.K_RIGHT and current_direction != 'LEFT':
                     x_speed = opts.SNAKE_BLOCK
                     y_speed = 0
-                elif event.key == opts.pygame.K_UP:
+                    current_direction = 'RIGHT'
+                elif event.key == opts.pygame.K_UP and current_direction != 'DOWN':
                     x_speed = 0
                     y_speed = -opts.SNAKE_BLOCK
-                elif event.key == opts.pygame.K_DOWN:
+                    current_direction = 'UP'
+                elif event.key == opts.pygame.K_DOWN and current_direction != 'UP':
                     x_speed = 0
                     y_speed = opts.SNAKE_BLOCK
-        
+                    current_direction = 'DOWN'
+                    
         if x >= opts.WIDTH or x < 0 or y >= opts.HEIGHT or y < 0:
             game_close = True
 
