@@ -32,7 +32,9 @@ def run_game():
         while game_close:
             opts.GAME_DISPLAY.fill(opts.BLACK)
             game_over_message = opts.MESSAGE_FONT.render('Game Over', True, opts.RED)
+            instruction_message = opts.MESSAGE_FONT.render('Press R to restart or Q to quit', True, opts.WHITE)
             opts.GAME_DISPLAY.blit(game_over_message, [opts.WIDTH / 3, opts.HEIGHT / 3])
+            opts.GAME_DISPLAY.blit(instruction_message, [opts.WIDTH / 5, opts.HEIGHT / 2])
             print_score(snake_length - 1)
             opts.pygame.display.update()
 
@@ -67,7 +69,7 @@ def run_game():
                     x_speed = 0
                     y_speed = opts.SNAKE_BLOCK
                     current_direction = 'DOWN'
-                    
+
         if x >= opts.WIDTH or x < 0 or y >= opts.HEIGHT or y < 0:
             game_close = True
 
