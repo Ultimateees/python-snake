@@ -1,6 +1,5 @@
 import pygame
 import time
-import random
 
 pygame.init()
 
@@ -8,7 +7,8 @@ pygame.init()
 WHITE = (255,255,255)
 BLACK = (0,0,0)
 RED = (255,0,0)
-GREEN = (0,155,0)
+DARK_GREEN = (0,133,0)
+LIGHT_GREEN = (0,183,0)
 
 # Define display size
 WIDTH, HEIGHT = 600, 400
